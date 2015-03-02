@@ -26,66 +26,48 @@
 
 
 	<div class="row result">
-		<div class="col-md-6 resultsPane">
-			<h4 class="resultsHeading text-center">Results1: </h4>
-			<h5>CMSC123</h5>
-			<p>
-			    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sit amet, consectetuer
-			    ipsum dolor sit amet, consectetuer. Amet, consectetuer...
-			</p>
-			<h5>CMSC123</h5>
-			<p>
-			    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sit amet, consectetuer
-			    ipsum dolor sit amet, consectetuer. Amet, consectetuer...
-			</p>
-			<h5>CMSC123</h5>
-			<p>
-			    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sit amet, consectetuer
-			    ipsum dolor sit amet, consectetuer. Amet, consectetuer...
-			</p>
-			<h5>CMSC123</h5>
-			<p>
-			    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sit amet, consectetuer
-			    ipsum dolor sit amet, consectetuer. Amet, consectetuer..
-			</p>
-			<h5>CMSC123</h5>
-			<p>
-			    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sit amet, consectetuer
-			    ipsum dolor sit amet, consectetuer. Amet, consectetuer...
-			</p>
-			<h5>CMSC123</h5>
-			<p>
-			    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sit amet, consectetuer
-			    ipsum dolor sit amet, consectetuer. Amet, consectetuer...
+		<div class="col-md-6">
+			<div class="resultsPane">
+				<h4 class="resultsHeading text-center">Results1: </h4>
+				<?php
+				    foreach($results1 as $result)
+				    {
+				        echo  '<h5>'.$result->coursecode.'</h5>'; // your fields/whatever you want to output.
+				        echo  '<p>'.$result->coursedesc.'</p>';
+				    }
+				?>
+			</div>
 		</div>
 		
-		<div class="col-md-6 resultsPane">
-			<h4 class="resultsHeading text-center">Results2: </h4>
-			<h5>CMSC124</h5>
-			<p>
-			    Ipsum dolor sit amet, consectetuer. adipiscing elit. Sit amet, consectetuer
-			    a, venenatis vitae, justo. Imperdiet a, venenatis vitae, justo. Vitae, justo...
-			</p>
-			<h5>CMSC124</h5>
-			<p>
-			    Ipsum dolor sit amet, consectetuer. adipiscing elit. Sit amet, consectetuer
-			    a, venenatis vitae, justo. Imperdiet a, venenatis vitae, justo. Vitae, justo...
-			</p>
-			<h5>CMSC124</h5>
-			<p>
-			    Ipsum dolor sit amet, consectetuer. adipiscing elit. Sit amet, consectetuer
-			    a, venenatis vitae, justo. Imperdiet a, venenatis vitae, justo. Vitae, justo...
-			</p>
-			<h5>CMSC124</h5>
-			<p>
-			    Ipsum dolor sit amet, consectetuer. adipiscing elit. Sit amet, consectetuer
-			    a, venenatis vitae, justo. Imperdiet a, venenatis vitae, justo. Vitae, justo...
-			</p>
-			<h5>CMSC124</h5>
-			<p>
-			    Ipsum dolor sit amet, consectetuer. adipiscing elit. Sit amet, consectetuer
-			    a, venenatis vitae, justo. Imperdiet a, venenatis vitae, justo. Vitae, justo...
-			</p>
+		<div class="col-md-6">
+			<div class="resultsPane">
+				<h4 class="resultsHeading text-center">Results2: </h4>
+				<h5>CMSC124</h5>
+				<p>
+				    Ipsum dolor sit amet, consectetuer. adipiscing elit. Sit amet, consectetuer
+				    a, venenatis vitae, justo. Imperdiet a, venenatis vitae, justo. Vitae, justo...
+				</p>
+				<h5>CMSC124</h5>
+				<p>
+				    Ipsum dolor sit amet, consectetuer. adipiscing elit. Sit amet, consectetuer
+				    a, venenatis vitae, justo. Imperdiet a, venenatis vitae, justo. Vitae, justo...
+				</p>
+				<h5>CMSC124</h5>
+				<p>
+				    Ipsum dolor sit amet, consectetuer. adipiscing elit. Sit amet, consectetuer
+				    a, venenatis vitae, justo. Imperdiet a, venenatis vitae, justo. Vitae, justo...
+				</p>
+				<h5>CMSC124</h5>
+				<p>
+				    Ipsum dolor sit amet, consectetuer. adipiscing elit. Sit amet, consectetuer
+				    a, venenatis vitae, justo. Imperdiet a, venenatis vitae, justo. Vitae, justo...
+				</p>
+				<h5>CMSC124</h5>
+				<p>
+				    Ipsum dolor sit amet, consectetuer. adipiscing elit. Sit amet, consectetuer
+				    a, venenatis vitae, justo. Imperdiet a, venenatis vitae, justo. Vitae, justo...
+				</p>
+			</div>
 		</div>
 	</div>
 

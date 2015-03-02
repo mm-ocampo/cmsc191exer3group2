@@ -14,10 +14,12 @@ class Search extends CI_Controller
 
     public function index(){
         $keyword = $this->input->get('searchBox');
-        $query = $this->search_model->search_one($keyword);
-        foreach($query->result() as $row){
+        $data['results1'] = $this->search_model->search_one($keyword)->result();
+        /*foreach($query->result() as $row){
             echo $row->coursecode;
             echo "<br />";
         }
+        */
+        $this->load->view('results', $data);
     }
 }

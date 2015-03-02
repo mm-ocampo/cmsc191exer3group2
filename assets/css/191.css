@@ -33,6 +33,11 @@
 	height: 300px;
 	overflow: scroll;
 	background-color: #F0F0F0;
+	border-top: solid 1px #333;
+	border-left: solid 1px #333;
+	border-right: solid 1px #333;
+	padding: 10px;
+	margin-bottom: 10px;
 }
 
 .searchBox{
