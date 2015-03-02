@@ -29,13 +29,18 @@
 	margin-bottom:5px;
 }
 
+.resultsPane{
+	height: 300px;
+	overflow: scroll;
+	background-color: #F0F0F0;
+}
 
 .searchBox{
 	margin: 30px;
 }
 
-.resultHeading{
-	margin: 5px 20px;
+.resultsHeading{
+	margin: 40px 0px;
 }
 
 .carousel{

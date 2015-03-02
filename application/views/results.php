@@ -22,75 +22,69 @@
 		 </div>
 	</div>
 
-	<div class="row">
-		<div class="col-md-4 col-md-offset-2">
-			<h4 class="resultHeading">Results: </h4>
-		</div>
-	</div>
-
-
 	<!--THESE ARE THE RESULTS -->
 
 
 	<div class="row result">
-		<div class="col-md-8 col-md-offset-2">
+		<div class="col-md-6 resultsPane">
+			<h4 class="resultsHeading text-center">Results1: </h4>
+			<h5>CMSC123</h5>
 			<p>
 			    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sit amet, consectetuer
 			    ipsum dolor sit amet, consectetuer. Amet, consectetuer...
 			</p>
+			<h5>CMSC123</h5>
+			<p>
+			    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sit amet, consectetuer
+			    ipsum dolor sit amet, consectetuer. Amet, consectetuer...
+			</p>
+			<h5>CMSC123</h5>
+			<p>
+			    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sit amet, consectetuer
+			    ipsum dolor sit amet, consectetuer. Amet, consectetuer...
+			</p>
+			<h5>CMSC123</h5>
+			<p>
+			    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sit amet, consectetuer
+			    ipsum dolor sit amet, consectetuer. Amet, consectetuer..
+			</p>
+			<h5>CMSC123</h5>
+			<p>
+			    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sit amet, consectetuer
+			    ipsum dolor sit amet, consectetuer. Amet, consectetuer...
+			</p>
+			<h5>CMSC123</h5>
+			<p>
+			    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sit amet, consectetuer
+			    ipsum dolor sit amet, consectetuer. Amet, consectetuer...
 		</div>
-	</div>
-
-	<div class="row result">
-		<div class="col-md-8 col-md-offset-2">
+		
+		<div class="col-md-6 resultsPane">
+			<h4 class="resultsHeading text-center">Results2: </h4>
+			<h5>CMSC124</h5>
 			<p>
 			    Ipsum dolor sit amet, consectetuer. adipiscing elit. Sit amet, consectetuer
 			    a, venenatis vitae, justo. Imperdiet a, venenatis vitae, justo. Vitae, justo...
 			</p>
-		</div>
-	</div>
-
-	<div class="row result">
-		<div class="col-md-8 col-md-offset-2">
-			<p>
-			    Imperdiet a, venenatis vitae, justo. Vitae, justo
-			    ipsum dolor sit amet, consectetuer. Imperdiet a, venenatis...
-			</p>
-		</div>
-	</div>
-
-	<div class="row result">
-		<div class="col-md-8 col-md-offset-2">
-			<p>
-			    Duis leo. Sed fringilla mauris sit amet nibh. adipiscing elit. 
-			    Imperdiet a, Imperdiet a, venenatis, consectetuer. Amet, consectetuer...
-			</p>
-		</div>
-	</div>
-
-	<div class="row result">
-		<div class="col-md-8 col-md-offset-2">
+			<h5>CMSC124</h5>
 			<p>
 			    Ipsum dolor sit amet, consectetuer. adipiscing elit. Sit amet, consectetuer
 			    a, venenatis vitae, justo. Imperdiet a, venenatis vitae, justo. Vitae, justo...
 			</p>
-		</div>
-	</div>
-
-	<div class="row result">
-		<div class="col-md-8 col-md-offset-2">
+			<h5>CMSC124</h5>
 			<p>
-			    Imperdiet a, venenatis vitae, justo. Vitae, justo
-			    ipsum dolor sit amet, consectetuer. Imperdiet a, venenatis...
+			    Ipsum dolor sit amet, consectetuer. adipiscing elit. Sit amet, consectetuer
+			    a, venenatis vitae, justo. Imperdiet a, venenatis vitae, justo. Vitae, justo...
 			</p>
-		</div>
-	</div>
-
-	<div class="row result">
-		<div class="col-md-8 col-md-offset-2">
+			<h5>CMSC124</h5>
 			<p>
-			    Duis leo. Sed fringilla mauris sit amet nibh. adipiscing elit. 
-			    Imperdiet a, Imperdiet a, venenatis, consectetuer. Amet, consectetuer...
+			    Ipsum dolor sit amet, consectetuer. adipiscing elit. Sit amet, consectetuer
+			    a, venenatis vitae, justo. Imperdiet a, venenatis vitae, justo. Vitae, justo...
+			</p>
+			<h5>CMSC124</h5>
+			<p>
+			    Ipsum dolor sit amet, consectetuer. adipiscing elit. Sit amet, consectetuer
+			    a, venenatis vitae, justo. Imperdiet a, venenatis vitae, justo. Vitae, justo...
 			</p>
 		</div>
 	</div>
