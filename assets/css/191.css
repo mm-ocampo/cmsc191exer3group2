@@ -1,0 +1,56 @@
+.horse{
+	width: 150px;
+	height: 150px;
+}
+
+.smallLogo{
+	width: 100px;
+	height: 100px;
+}
+
+.rowLogo{
+	margin-top: 20px;
+}
+
+.engineName{
+	color: #333;
+	font-family: 'Raleway', sans-serif;	
+}
+
+.topLine{
+	background-color: #0099CC;
+	height: 5px;
+	margin-bottom:100px;
+}
+
+.topLine2{
+	background-color: #0099CC;
+	height: 5px;
+	margin-bottom:5px;
+}
+
+
+.searchBox{
+	margin: 30px;
+}
+
+.resultHeading{
+	margin: 5px 20px;
+}
+
+.carousel{
+	font-family: 'Raleway', sans-serif;	
+	margin: 30px;
+	height:90px;
+	color: #999;
+}
+
+.result{
+	margin: 30px 20px;
+}
+
+.backToHome{
+	padding-top: 10px;
+	padding-bottom: 60px;
+	font-size: 12pt;
+}
