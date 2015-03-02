@@ -19,7 +19,6 @@ class Main extends CI_Controller {
 			$totalWords += str_word_count($item->coursedesc);
 		}
 		/* end [1] */
-		var_dump($wholeText);
 		$this->load->view('home');
 	}
 
