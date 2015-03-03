@@ -12,7 +12,7 @@
 		 <div class="col-md-6 col-md-offset-3">
 		 	<form method="get" action="<?php echo base_url();?>index.php/search" id="searchForm">
 			    <div class="input-group">
-			      <input type="text" class="form-control" placeholder="Search for..." name="searchBox">
+			      <input type="text" class="form-control" placeholder="Search for..." name="searchBox" required>
 			      <span class="input-group-btn">
                       <!--input type="submit" class="btn btn-success" name="searchButton" value="Search"/-->
 			        <button class="btn btn-success" type="submit" form="searchForm">
