@@ -47,9 +47,9 @@ class Search extends CI_Controller
         }*/
         foreach ($data['results1'] as $item) {
             $temp = substr_count($item->coursedesc, $keyword) * $weightList[$keyword];
-            $pos = stripos($item->coursetit, needle);
+/*            $pos = stripos($item->coursename, needle);
             if($pos !== false)
-                $temp += 2.5;
+                $temp += 2.5;*/
             $item['weight'] = $temp;
         }        
         echo var_dump($data['results1']);

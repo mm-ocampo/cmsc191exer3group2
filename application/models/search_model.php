@@ -14,7 +14,7 @@ class Search_model extends CI_Model
     }
 
     public function search_one($keyword){
-        $query = $this->db->query("select coursecode, coursename, coursedesc from course where match(coursedesc) against('".$keyword."' in natural language mode)");
+        $query = $this->db->query("select coursedesc from course where match(coursedesc) against('".$keyword."' in natural language mode)");
         return $query;
     }
 
