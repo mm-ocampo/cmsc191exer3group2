@@ -31,13 +31,12 @@
 
 .resultsPane{
 	height: 300px;
-	overflow: scroll;
-	background-color: #F0F0F0;
-	border-top: solid 1px #333;
-	border-left: solid 1px #333;
-	border-right: solid 1px #333;
+	overflow-y: scroll;
+	background-color: inherit;
+	border: none;
 	padding: 10px;
 	margin-bottom: 10px;
+	width: 105%;
 }
 
 .searchBox{
@@ -45,7 +44,7 @@
 }
 
 .resultsHeading{
-	margin: 40px 0px;
+	margin: 20px 0px;
 }
 
 .carousel{
@@ -63,4 +62,14 @@
 	padding-top: 10px;
 	padding-bottom: 60px;
 	font-size: 12pt;
+}
+
+
+.scrollHide1{
+	overflow: hidden;
+	border-right: solid 1px #333;
+}
+
+.scrollHide2{
+	overflow: hidden;
 }

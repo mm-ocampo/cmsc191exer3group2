@@ -29,9 +29,9 @@
 
 
 	<div class="row result">
-		<div class="col-md-6">
+		<div class="col-md-6 scrollHide1">
+			<h4 class="resultsHeading text-center">Results1: </h4>
 			<div class="resultsPane">
-				<h4 class="resultsHeading text-center">Results1: </h4>
 				<?php
 				    foreach($results1 as $result)
 				    {
@@ -42,9 +42,9 @@
 			</div>
 		</div>
 		
-		<div class="col-md-6">
+		<div class="col-md-6 scrollHide2">
+			<h4 class="resultsHeading text-center">Results2: </h4>
 			<div class="resultsPane">
-				<h4 class="resultsHeading text-center">Results2: </h4>
 				<h5>CMSC124</h5>
 				<p>
 				    Ipsum dolor sit amet, consectetuer. adipiscing elit. Sit amet, consectetuer
