@@ -35,24 +35,24 @@ class Search extends CI_Controller
             }
             /* end get */
         }
-        /*echo var_dump($weightList);*/
         /*echo $totalWords . "<br/>";*/
-        $numberOfDistinctWords = count($wordList);
+        /*echo var_dump($wordList);*/
+        /*echo var_dump($weightList);*/
+        /*$numberOfDistinctWords = count($wordList);*/
         /* end [1] */
         $keyword = $this->input->get('searchBox');
         $data['results1'] = $this->search_model->search_one($keyword)->result();
-        /*foreach($query->result() as $row){
-            echo $row->coursecode;
-            echo "<br />";
-        }*/
+        /* rank all queries */
+        $rank = array();
         foreach ($data['results1'] as $item) {
-            $temp = substr_count($item->coursedesc, $keyword) * $weightList[$keyword];
-/*            $pos = stripos($item->coursename, needle);
+            $temp = substr_count(strtolower($item->coursedesc), $keyword) * $weightList[$keyword];
+            $pos = stripos($item->coursename, $keyword);
             if($pos !== false)
-                $temp += 2.5;*/
-            $item['weight'] = $temp;
+                $temp += 2.5;
+            $item->weight = $temp;
         }        
-        echo var_dump($data['results1']);
+        /*echo var_dump($data['results1']);*/
+        /* end rank all queries */
         $this->load->view('results', $data);
     }
 }

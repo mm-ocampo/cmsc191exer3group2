@@ -38,7 +38,7 @@
 					}else{
 					    foreach($results1 as $result)
 					    {
-					        echo  '<h5>'.$result->coursecode.'</h5>';
+					        echo  '<h5>'.$result->coursecode.'</h5>'.$result->weight;
 					        if(str_word_count($result->coursedesc) <= 15){
 					        	echo  '<p>'.$result->coursedesc.'</p>';
 					        	echo  '<p>'.str_word_count($result->coursedesc).'</p>';
