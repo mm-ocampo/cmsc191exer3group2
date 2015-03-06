@@ -52,8 +52,7 @@ class Search extends CI_Controller
             $item->weight = $temp;
             $rank[$item->coursecode] = $item->weight;
         }
-        echo var_dump(array_multisort($rank, SORT_DESC, $data['results1']));       
-        /*echo var_dump($data['results1']);*/
+        array_multisort($rank, SORT_DESC, $data['results1']);
         /* end rank all queries */
         $this->load->view('results', $data);
     }
