@@ -12,10 +12,6 @@ class Search extends CI_Controller
         $this->load->model('search_model');
     }
 
-    public function preprocess_data(){
-
-    }
-
     public function index(){
         $wordList = array();
         $weightList = array();
@@ -55,17 +51,19 @@ class Search extends CI_Controller
             $item->weight = 0;
             $temp = 0;
             $count = 0;
+            $occurrenceOfKeywordsInTuple = 0;
             foreach ($tempstr as $key) {
                 if(array_key_exists($key, $wordList)){
                     $count++;
-                    $temp += substr_count(strtolower($item->coursedesc), $key) * $weightList[$key];
+                    $occurrenceOfKeywordsInTuple += substr_count(strtolower($item->coursedesc), $key);
+                    $temp +=  substr_count(strtolower($item->coursedesc), $key) * $weightList[$key];
                     $pos = stripos($item->coursename, $key);
                     if($pos !== false)
                         $temp += 2.5;
                     $item->weight += $temp;
                 }
             }
-            $item->weight += $count/count($tempstr);
+            $item->weight += $count/count($tempstr) + ($occurrenceOfKeywordsInTuple/str_word_count($item->coursedesc));
             $rank[$item->coursecode] = $item->weight;
         }
         array_multisort($rank, SORT_DESC, $data['results1']);
