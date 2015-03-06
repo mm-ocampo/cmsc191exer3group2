@@ -12,7 +12,7 @@ class Search extends CI_Controller
         $this->load->model('search_model');
     }
 
-    public function index(){
+    public function preprocess_data(){
         $wordList = array();
         $weightList = array();
         /* [1] get total number of words */
@@ -41,19 +41,19 @@ class Search extends CI_Controller
             /* [3] end get */
         }
         /* end [1] */
-        $keyword = strtolower($this->input->get('searchBox'));
-        // get all keywords
-        $tempstr = explode(' ', $keyword);
-        $data['results1'] = $this->search_model->search_one($keyword)->result();
-        /* [4] rank all queries */
+        return $weightList;
+    }
+
+    public function compute_scores($matched,$weightList, $tempstr){
+        /* [1] rank all queries */
         $rank = array();
-        foreach ($data['results1'] as $item) {
+        foreach ($matched as $item) {
             $item->weight = 0;
             $temp = 0;
             $count = 0;
             $occurrenceOfKeywordsInTuple = 0;
             foreach ($tempstr as $key) {
-                if(array_key_exists($key, $wordList)){
+                if(array_key_exists($key, $weightList)){
                     $count++;
                     $occurrenceOfKeywordsInTuple += substr_count(strtolower($item->coursedesc), $key);
                     $temp +=  substr_count(strtolower($item->coursedesc), $key) * $weightList[$key];
@@ -66,8 +66,23 @@ class Search extends CI_Controller
             $item->weight += $count/count($tempstr) + ($occurrenceOfKeywordsInTuple/str_word_count($item->coursedesc));
             $rank[$item->coursecode] = $item->weight;
         }
-        array_multisort($rank, SORT_DESC, $data['results1']);
-        /* [4] end rank all queries */
+        array_multisort($rank, SORT_DESC, $matched);
+        /* [1] end rank all queries */
+        return $matched;
+    }
+
+    public function scoring_algo1(){
+        $weightList= $this->preprocess_data();
+        $keyword = strtolower($this->input->get('searchBox'));
+        // get all keywords
+        $tempstr = explode(' ', $keyword);
+        $matched = $this->search_model->search_one($keyword)->result();
+        $matched = $this->compute_scores($matched, $weightList, $tempstr);
+        return $matched;
+    }
+
+    public function index(){
+        $data['results1'] = $this->scoring_algo1();
         $this->load->view('results', $data);
     }
 }

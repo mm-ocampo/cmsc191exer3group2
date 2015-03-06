@@ -39,6 +39,7 @@
 					    foreach($results1 as $result)
 					    {
 					        echo  '<h5>'.$result->coursecode.'</h5>'.$result->weight."<br/>".$result->score;
+					        echo  '<p>'.$result->coursename.'</p>';
 					        echo  '<p>'.$result->coursedesc.'</p>';
 					        echo  '<p>'.str_word_count($result->coursedesc).'</p>';
 
