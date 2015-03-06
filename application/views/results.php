@@ -39,13 +39,15 @@
 					    foreach($results1 as $result)
 					    {
 					        echo  '<h5>'.$result->coursecode.'</h5>'.$result->weight;
-					        if(str_word_count($result->coursedesc) <= 15){
+					        echo  '<p>'.$result->coursedesc.'</p>';
+					        echo  '<p>'.str_word_count($result->coursedesc).'</p>';
+					        /*if(str_word_count($result->coursedesc) <= 15){
 					        	echo  '<p>'.$result->coursedesc.'</p>';
 					        	echo  '<p>'.str_word_count($result->coursedesc).'</p>';
 					        }else{
 					        	echo  '<p>'.implode(' ', array_slice(explode(' ', $result->coursedesc), 0, 15)).'...</p>';
 					        	echo  '<p>'.str_word_count($result->coursedesc).'</p>';
-					        }
+					        }*/
 
 					    }
 					}
