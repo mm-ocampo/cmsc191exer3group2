@@ -19,6 +19,8 @@ class Search_model extends CI_Model
         return $query;
     }
 
-    public function search_two(){
+    public function search_two($keyword){
+        $query = $this->db->query("select coursecode, coursename, coursedesc from course");
+        return $query;
     }
 }

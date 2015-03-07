@@ -71,6 +71,38 @@ class Search extends CI_Controller
         return $matched;
     }
 
+    public function proximity_scoring($exploded, $matchRow){
+        $countMatchRow = count($matchRow);
+        $explodedMatchRow = explode(' ', $matchRow);
+        $currentExplodedIndex = 1;
+        $score = 0.0;
+        $ctr = 0;
+        foreach($explodedMatchRow as $word){
+            if($exploded[$currentExplodedIndex]==$word){
+                switch($ctr){
+                    case 0: $score+= 1;
+                        break;
+                    case 1: $score+=0.75;
+                        break;
+                    case 2: $score+=0.5;
+                        break;
+                    case 3: $score+=0.25;
+                        break;
+                    case 4: $score+=0.1;
+                        break;
+                    default: $score+=0;
+                        break;
+                }
+                $currentExplodedIndex++;
+                $ctr = 0;
+            }
+            else{
+                $ctr++;
+            }
+        }
+        return $score;
+    }
+
     public function scoring_algo1(){
         $weightList= $this->preprocess_data();
         $keyword = strtolower($this->input->get('searchBox'));
@@ -81,10 +113,20 @@ class Search extends CI_Controller
         return $matched;
     }
 
+    public function scoring_algo2(){
+        $keyword = strtolower($this->input->get('searchBox'));
+        $exploded = explode(' ', $keyword);
+        $size = count($exploded);
+        $matched = $this->search_model->search_two($exploded[0])->result();
+        foreach($matched as $row){
+            $row['score'] = proximity_scoring($exploded, $row['coursedesc']);;
+        }
+    }
+
     public function index(){
         $data['results1'] = $this->scoring_algo1();
         $data['query'] = strtolower($this->input->get('searchBox'));
-
+        $data['results2'] = $this->scoring_algo2();
         $this->load->view('results', $data);
     }
 }
