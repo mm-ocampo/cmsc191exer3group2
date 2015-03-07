@@ -74,14 +74,33 @@ class Search extends CI_Controller
     public function proximity_scoring($exploded, $matchRow){
         $countMatchRow = count($matchRow);
         $explodedMatchRow = explode(' ', $matchRow);
-        $currentExplodedIndex = 0;
+        $currentExplodedIndex = 1;
         $score = 0.0;
         $ctr = 0;
         foreach($explodedMatchRow as $word){
-
-            $ctr++;
+            if($exploded[$currentExplodedIndex]==$word){
+                switch($ctr){
+                    case 0: $score+= 1;
+                        break;
+                    case 1: $score+=0.75;
+                        break;
+                    case 2: $score+=0.5;
+                        break;
+                    case 3: $score+=0.25;
+                        break;
+                    case 4: $score+=0.1;
+                        break;
+                    default: $score+=0;
+                        break;
+                }
+                $currentExplodedIndex++;
+                $ctr = 0;
+            }
+            else{
+                $ctr++;
+            }
         }
-        return 1;
+        return $score;
     }
 
     public function scoring_algo1(){
