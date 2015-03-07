@@ -13,7 +13,7 @@
 		 <div class="col-md-6 col-md-offset-3">
 		 	<form method="get" action="<?php echo base_url();?>index.php/search" id="searchForm">
 			    <div class="input-group">
-			      <input type="text" class="form-control" placeholder="Search for..." name="searchBox" required>
+			      <input type="text" class="form-control" <?php if (isset($query)) echo ("value='".$query."'"); else echo "placeholder='Search for'";?> name="searchBox" required>
 			      <span class="input-group-btn">
                       <!--input type="submit" class="btn btn-success" name="searchButton" value="Search"/-->
 			        <button class="btn btn-success" type="submit" form="searchForm">
@@ -30,7 +30,7 @@
 
 	<div class="row result">
 		<div class="col-md-6 scrollHide1">
-			<h4 class="resultsHeading text-center">Results1: </h4>
+			<h4 class="resultsHeading text-center">Results1:</h4>
 			<div class="resultsPane">
 				<?php
 					if(empty($results1)){

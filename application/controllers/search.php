@@ -83,6 +83,8 @@ class Search extends CI_Controller
 
     public function index(){
         $data['results1'] = $this->scoring_algo1();
+        $data['query'] = strtolower($this->input->get('searchBox'));
+
         $this->load->view('results', $data);
     }
 }
