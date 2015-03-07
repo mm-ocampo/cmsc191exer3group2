@@ -71,6 +71,19 @@ class Search extends CI_Controller
         return $matched;
     }
 
+    public function proximity_scoring($exploded, $matchRow){
+        $countMatchRow = count($matchRow);
+        $explodedMatchRow = explode(' ', $matchRow);
+        $currentExplodedIndex = 0;
+        $score = 0.0;
+        $ctr = 0;
+        foreach($explodedMatchRow as $word){
+
+            $ctr++;
+        }
+        return 1;
+    }
+
     public function scoring_algo1(){
         $weightList= $this->preprocess_data();
         $keyword = strtolower($this->input->get('searchBox'));
@@ -81,8 +94,19 @@ class Search extends CI_Controller
         return $matched;
     }
 
+    public function scoring_algo2(){
+        $keyword = strtolower($this->input->get('searchBox'));
+        $exploded = explode(' ', $keyword);
+        $size = count($exploded);
+        $matched = $this->search_model->search_two($exploded[0])->result();
+        foreach($matched as $row){
+            $row['score'] = proximity_scoring($exploded, $row['coursedesc']);;
+        }
+    }
+
     public function index(){
         $data['results1'] = $this->scoring_algo1();
+        $data['results2'] = $this->scoring_algo2();
         $this->load->view('results', $data);
     }
 }
