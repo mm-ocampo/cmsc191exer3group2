@@ -106,6 +106,10 @@ class Search extends CI_Controller
         return $score;
     }
 
+    function cmp($a, $b) {
+        return $a['score'] - $b['score'];
+    }
+
     public function scoring_algo1(){
         $weightList= $this->preprocess_data();
         $keyword = strtolower($this->input->get('searchBox'));
@@ -122,12 +126,11 @@ class Search extends CI_Controller
         $arr = array();
         $size = count($exploded);
         $matched = $this->search_model->search_two($exploded[0])->result();
-        for($i=0;$i<5;$i++){
+        $ct = count($matched);
+        for($i=0;$i<$ct;$i++){
             $matched[$i]->score = $this->proximity_scoring($exploded, $matched[$i]->coursedesc);
-            echo $matched[$i]->score;
         }
-        $ind = 0;
-        ksort($matched);
+        //TODO sort array
         return $matched;
     }
 
