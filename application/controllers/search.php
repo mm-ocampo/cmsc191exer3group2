@@ -94,6 +94,9 @@ class Search extends CI_Controller
                         break;
                 }
                 $currentExplodedIndex++;
+                if($currentExplodedIndex>=count($exploded)){
+                    break;
+                }
                 $ctr = 0;
             }
             else{
@@ -119,8 +122,9 @@ class Search extends CI_Controller
         $size = count($exploded);
         $matched = $this->search_model->search_two($exploded[0])->result();
         foreach($matched as $row){
-            $row['score'] = proximity_scoring($exploded, $row['coursedesc']);;
+            $this->proximity_scoring($exploded, $row->coursedesc);
         }
+        return $matched;
     }
 
     public function index(){
