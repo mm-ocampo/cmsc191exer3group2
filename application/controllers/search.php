@@ -103,7 +103,6 @@ class Search extends CI_Controller
                 $ctr++;
             }
         }
-        echo "score: ".$score."<br />";
         return $score;
     }
 
@@ -120,11 +119,15 @@ class Search extends CI_Controller
     public function scoring_algo2(){
         $keyword = strtolower($this->input->get('searchBox'));
         $exploded = explode(' ', $keyword);
+        $arr = array();
         $size = count($exploded);
         $matched = $this->search_model->search_two($exploded[0])->result();
-        foreach($matched as $row){
-            $this->proximity_scoring($exploded, $row->coursedesc)."<br />";
+        for($i=0;$i<5;$i++){
+            $matched[$i]->score = $this->proximity_scoring($exploded, $matched[$i]->coursedesc);
+            echo $matched[$i]->score;
         }
+        $ind = 0;
+        ksort($matched);
         return $matched;
     }
 
