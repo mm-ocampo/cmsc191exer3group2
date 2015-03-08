@@ -75,7 +75,7 @@ class Search extends CI_Controller
         $countMatchRow = count($matchRow);
         $explodedMatchRow = explode(' ', $matchRow);
         $currentExplodedIndex = 1;
-        $score = 0.0;
+        $score = 0.05;
         $ctr = 0;
         foreach($explodedMatchRow as $word){
             if($exploded[$currentExplodedIndex]==$word){
@@ -103,6 +103,7 @@ class Search extends CI_Controller
                 $ctr++;
             }
         }
+        echo "score: ".$score."<br />";
         return $score;
     }
 
@@ -122,7 +123,7 @@ class Search extends CI_Controller
         $size = count($exploded);
         $matched = $this->search_model->search_two($exploded[0])->result();
         foreach($matched as $row){
-            $this->proximity_scoring($exploded, $row->coursedesc);
+            $this->proximity_scoring($exploded, $row->coursedesc)."<br />";
         }
         return $matched;
     }
