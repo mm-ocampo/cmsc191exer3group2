@@ -125,12 +125,19 @@ class Search extends CI_Controller
         $exploded = explode(' ', $keyword);
         $arr = array();
         $size = count($exploded);
-        $matched = $this->search_model->search_two($exploded[0])->result();
-        $ct = count($matched);
-        for($i=0;$i<$ct;$i++){
-            $matched[$i]->score = $this->proximity_scoring($exploded, $matched[$i]->coursedesc);
+        $matched = null;
+        if($size = 1){
+            $matched = $this->scoring_algo1();
         }
-        //TODO sort array
+        else{
+            $matched = $this->search_model->search_two($exploded[0])->result();
+            $ct = count($matched);
+            for($i=0;$i<$ct;$i++){
+                $matched[$i]->score = $this->proximity_scoring($exploded, $matched[$i]->coursedesc);
+                $arr[] = $matched[$i]->score;
+            }
+            array_multisort($arr, SORT_DESC, $matched);
+        }
         return $matched;
     }
 
