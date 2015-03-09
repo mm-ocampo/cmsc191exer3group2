@@ -57,9 +57,11 @@ class Search extends CI_Controller
                     $count++;
                     $occurrenceOfKeywordsInTuple += substr_count(strtolower($item->coursedesc), $key);
                     $temp +=  substr_count(strtolower($item->coursedesc), $key) * $weightList[$key];
-                    $pos = stripos($item->coursename, $key);
-                    if($pos !== false)
+                    if(in_array($key, preg_split( "/ [\s,.]] /", $item->coursename)))
                         $temp += 2.5;
+                   /* $pos = stripos($item->coursename, $key);
+                    if($pos !== false)
+                        $temp += 2.5;*/
                     $item->weight += $temp;
                 }
             }
