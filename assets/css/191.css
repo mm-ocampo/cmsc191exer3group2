@@ -3,6 +3,10 @@
 	height: 150px;
 }
 
+.fast{
+	text-decoration: line-through;
+}
+
 .smallLogo{
 	width: 100px;
 	height: 100px;
@@ -71,10 +75,13 @@
 .scrollHide1{
 	overflow: hidden;
 	border-right: solid 1px #333;
+	margin-bottom: 40px;
 }
 
 .scrollHide2{
 	overflow: hidden;
+	margin-bottom: 40px;
+
 }
 
 .weight-badge{

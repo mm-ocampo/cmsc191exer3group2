@@ -5,7 +5,7 @@
 	<div class="row">
 		<div class="col-md-2 col-md-offset-5 text-center">
 			<img class="img-circle horse" src= "<?php echo base_url(); ?>assets/img/horse.jpg" />
-			<h1 class="engineName">FastEngine</h1>
+			<h1 class="engineName"><span class="fast">Fast</span>Engine</h1>
 		</div>
 	</div>
 	<div class="row searchBox">

@@ -6,7 +6,7 @@
 	<div class="row rowLogo">
 		<div class="col-md-4 col-md-offset-4 text-center">
 			<img class="img-circle horse smallLogo" src= "<?php echo base_url(); ?>assets/img/horse.jpg" />
-			<h3 class="engineName">FastEngine</h3>
+			<h3 class="engineName"><span class="fast">Fast</span>Engine</h3>
 		</div>
 	</div>
 	<div class="row searchBox">
