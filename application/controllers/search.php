@@ -136,10 +136,11 @@ class Search extends CI_Controller
             $ct = count($matched);
             for($i=0;$i<$ct;$i++){
                 $matched[$i]->score = $this->proximity_scoring($exploded, $matched[$i]->coursedesc);
-                $arr[] = $matched[$i]->score;
+                $arr[$matched->coursecode] = $matched[$i]->score;
             }
             array_multisort($arr, SORT_DESC, $matched);
         }
+        echo var_dump($matched);
         return $matched;
     }
 
