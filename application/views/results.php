@@ -32,16 +32,27 @@
 		<div class="col-md-6 scrollHide1">
 			<h4 class="resultsHeading text-center">Results1:</h4>
 			<div class="resultsPane">
+				<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 				<?php
 					if(empty($results1)){
 						echo  '<h5>No match found T.T</h5>';
 					}else{
+						$i = 0;
 					    foreach($results1 as $result)
-					    {
-					        echo  '<h5>'.$result->coursecode.'</h5>'.$result->weight."<br/>".$result->score;
+					    { 
+							echo "<div class='panel panel-success'>";
+							echo "<div class='panel-heading' role='tab' id='result1-". $i. "''>";
+							echo "<h4 class='panel-title'>";
+							echo "<a data-toggle='collapse' data-parent='#accordion' href='#result1body-".$i ."' aria-expanded='true' aria-controls='result1-" . $i ."'>" . $result->coursecode. "<span class='badge weight-badge'>". round($result->weight, 4) ."</span></a></h4></div>";
+							echo "<div id='result1body-" . $i . "' class='panel-collapse collapse in' role='tabpanel' aria-labelledby='headingOne'>";
+							echo "<div class='panel-body'>";
+							echo "<h3>" . $result->coursename . "</h3>";
+							echo $result->coursedesc;
+							echo "</div></div></div>";
+					        /*echo  '<h5>'.$result->coursecode.'</h5>'.$result->weight."<br/>".$result->score;
 					        echo  '<p>'.$result->coursename.'</p>';
 					        echo  '<p>'.$result->coursedesc.'</p>';
-					        echo  '<p>'.str_word_count($result->coursedesc).'</p>';
+					        echo  '<p>'.str_word_count($result->coursedesc).'</p>';*/
 
 					        /*if(str_word_count($result->coursedesc) <= 15){
 					        	echo  '<p>'.$result->coursedesc.'</p>';
@@ -50,10 +61,11 @@
 					        	echo  '<p>'.implode(' ', array_slice(explode(' ', $result->coursedesc), 0, 15)).'...</p>';
 					        	echo  '<p>'.str_word_count($result->coursedesc).'</p>';
 					        }*/
-
+					        $i++;
 					    }
 					}
 				?>
+				</div>
 			</div>
 		</div>
 		
