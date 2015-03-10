@@ -128,7 +128,7 @@ class Search extends CI_Controller
         $arr = array();
         $size = count($exploded);
         $matched = null;
-        if($size = 1){
+        if($size == 1){
             $matched = $this->scoring_algo1();
         }
         else{
@@ -140,7 +140,6 @@ class Search extends CI_Controller
             }
             array_multisort($arr, SORT_DESC, $matched);
         }
-        echo var_dump($matched);
         return $matched;
     }
 
