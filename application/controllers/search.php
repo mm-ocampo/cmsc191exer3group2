@@ -65,7 +65,7 @@ class Search extends CI_Controller
                     $item->weight += $temp;
                 }
             }
-            $item->weight += $count/count($tempstr) + ($occurrenceOfKeywordsInTuple/str_word_count($item->coursedesc));
+            $item->weight += (($count/count($tempstr))*2) + ($occurrenceOfKeywordsInTuple/str_word_count($item->coursedesc));
             $rank[$item->coursecode] = $item->weight;
         }
         array_multisort($rank, SORT_DESC, $matched);
