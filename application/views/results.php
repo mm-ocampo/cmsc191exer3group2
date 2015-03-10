@@ -72,32 +72,40 @@
 		<div class="col-md-6 scrollHide2">
 			<h4 class="resultsHeading text-center">Results2: </h4>
 			<div class="resultsPane">
-				<h5>CMSC124</h5>
-				<p>
-				    Ipsum dolor sit amet, consectetuer. adipiscing elit. Sit amet, consectetuer
-				    a, venenatis vitae, justo. Imperdiet a, venenatis vitae, justo. Vitae, justo...
-				</p>
-				<h5>CMSC124</h5>
-				<p>
-				    Ipsum dolor sit amet, consectetuer. adipiscing elit. Sit amet, consectetuer
-				    a, venenatis vitae, justo. Imperdiet a, venenatis vitae, justo. Vitae, justo...
-				</p>
-				<h5>CMSC124</h5>
-				<p>
-				    Ipsum dolor sit amet, consectetuer. adipiscing elit. Sit amet, consectetuer
-				    a, venenatis vitae, justo. Imperdiet a, venenatis vitae, justo. Vitae, justo...
-				</p>
-				<h5>CMSC124</h5>
-				<p>
-				    Ipsum dolor sit amet, consectetuer. adipiscing elit. Sit amet, consectetuer
-				    a, venenatis vitae, justo. Imperdiet a, venenatis vitae, justo. Vitae, justo...
-				</p>
-				<h5>CMSC124</h5>
-				<p>
-				    Ipsum dolor sit amet, consectetuer. adipiscing elit. Sit amet, consectetuer
-				    a, venenatis vitae, justo. Imperdiet a, venenatis vitae, justo. Vitae, justo...
-				</p>
-			</div>
+				<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+				<?php
+					if(empty($results2)){
+						echo  '<h5>No match found T.T</h5>';
+					}else{
+						$i = 0;
+					    foreach($results2 as $result)
+					    { 
+							echo "<div class='panel panel-success'>";
+							echo "<div class='panel-heading' role='tab' id='result2-". $i. "''>";
+							echo "<h4 class='panel-title'>";
+							echo "<a data-toggle='collapse' data-parent='#accordion' href='#result2body-".$i ."' aria-expanded='true' aria-controls='result2-" . $i ."'>" . $result->coursecode. "<span class='badge weight-badge'>". round($result->weight, 4) ."</span></a></h4></div>";
+							echo "<div id='result2body-" . $i . "' class='panel-collapse collapse in' role='tabpanel' aria-labelledby='headingOne'>";
+							echo "<div class='panel-body'>";
+							echo "<h3>" . $result->coursename . "</h3>";
+							echo $result->coursedesc;
+							echo "</div></div></div>";
+					        /*echo  '<h5>'.$result->coursecode.'</h5>'.$result->weight."<br/>".$result->score;
+					        echo  '<p>'.$result->coursename.'</p>';
+					        echo  '<p>'.$result->coursedesc.'</p>';
+					        echo  '<p>'.str_word_count($result->coursedesc).'</p>';*/
+
+					        /*if(str_word_count($result->coursedesc) <= 15){
+					        	echo  '<p>'.$result->coursedesc.'</p>';
+					        	echo  '<p>'.str_word_count($result->coursedesc).'</p>';
+					        }else{
+					        	echo  '<p>'.implode(' ', array_slice(explode(' ', $result->coursedesc), 0, 15)).'...</p>';
+					        	echo  '<p>'.str_word_count($result->coursedesc).'</p>';
+					        }*/
+					        $i++;
+					    }
+					}
+				?>
+				</div>
 		</div>
 	</div>
 
