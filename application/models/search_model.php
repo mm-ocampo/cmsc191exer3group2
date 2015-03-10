@@ -20,7 +20,7 @@ class Search_model extends CI_Model
     }
 
     public function search_two($keyword){
-        $query = $this->db->query("select coursecode, coursename, coursedesc from course");
+        $query = $this->db->query("select coursecode, coursename, coursedesc from course where coursedesc like %$keyword%");
         return $query;
     }
 }

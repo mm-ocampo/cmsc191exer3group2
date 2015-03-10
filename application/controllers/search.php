@@ -136,7 +136,7 @@ class Search extends CI_Controller
             $ct = count($matched);
             for($i=0;$i<$ct;$i++){
                 $matched[$i]->weight = $this->proximity_scoring($exploded, $matched[$i]->coursedesc);
-                $arr[] = $matched[$i]->weight;
+                $arr[$matched->coursedesc] = $matched[$i]->weight;
             }
             array_multisort($arr, SORT_DESC, $matched);
         }
