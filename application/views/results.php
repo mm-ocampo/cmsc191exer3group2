@@ -11,7 +11,7 @@
 	</div>
 	<div class="row searchBox">
 		 <div class="col-md-6 col-md-offset-3">
-		 	<form method="get" action="<?php echo base_url();?>index.php/search" id="searchForm">
+		 	<form method="get" onsubmit="return validateForm()" action="<?php echo base_url();?>index.php/search" name="searchForm" id="searchForm">
 			    <div class="input-group">
 			      <input type="text" class="form-control" <?php if (isset($query)) echo ("value='".$query."'"); else echo "placeholder='Search for'";?> name="searchBox" required>
 			      <span class="input-group-btn">

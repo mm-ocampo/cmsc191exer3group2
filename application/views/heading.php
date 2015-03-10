@@ -12,5 +12,15 @@
 	<link href='http://fonts.googleapis.com/css?family=Raleway:400,300' rel='stylesheet' type='text/css'>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   
-    <script src="<?php echo base_url();?>assets/js/bootstrap.min.js"></script>
+  <script src="<?php echo base_url();?>assets/js/bootstrap.min.js"></script>
+
+  <script>
+		function validateForm() {
+		    var x = document.forms["searchForm"]["searchBox"].value;
+		    if (x == null || x.length < 3) {
+		        alert("Search term must be at least 3 characters long");
+		        return false;
+		    }
+		}
+		</script>
 </head>
